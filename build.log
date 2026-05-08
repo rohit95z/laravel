@@ -1,0 +1,238 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 645B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/php:8.2-fpm
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/composer:latest
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 FROM docker.io/library/composer:latest@sha256:dc292c5c0f95f526b051d4c341bf08e7e2b18504c74625e3203d7f123050e318
+#5 resolve docker.io/library/composer:latest@sha256:dc292c5c0f95f526b051d4c341bf08e7e2b18504c74625e3203d7f123050e318 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-0 1/8] FROM docker.io/library/php:8.2-fpm@sha256:92e11f8945c062b053d574b19699c317576efb87adbfca442c74a45f995ec1fa
+#6 resolve docker.io/library/php:8.2-fpm@sha256:92e11f8945c062b053d574b19699c317576efb87adbfca442c74a45f995ec1fa 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 10.18kB done
+#7 DONE 0.0s
+
+#8 [stage-0 2/8] RUN apt-get update && apt-get install -y     git curl libpng-dev libonig-dev libxml2-dev     libzip-dev zip unzip nodejs npm     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+#8 CACHED
+
+#9 [stage-0 3/8] COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+#9 CACHED
+
+#10 [stage-0 4/8] WORKDIR /var/www/html
+#10 CACHED
+
+#11 [stage-0 5/8] COPY . .
+#11 DONE 0.1s
+
+#12 [stage-0 6/8] RUN composer install --optimize-autoloader --no-dev --ignore-platform-reqs
+#12 0.407 Installing dependencies from lock file
+#12 0.412 Verifying lock file contents can be installed on current platform.
+#12 0.431 Package operations: 71 installs, 0 updates, 0 removals
+#12 0.443   - Downloading doctrine/inflector (2.0.4)
+#12 0.445   - Downloading doctrine/lexer (1.2.2)
+#12 0.445   - Downloading symfony/polyfill-ctype (v1.24.0)
+#12 0.446   - Downloading webmozart/assert (1.10.0)
+#12 0.446   - Downloading dragonmantank/cron-expression (v3.3.1)
+#12 0.446   - Downloading symfony/polyfill-php80 (v1.24.0)
+#12 0.447   - Downloading symfony/polyfill-php73 (v1.24.0)
+#12 0.447   - Downloading symfony/polyfill-mbstring (v1.24.0)
+#12 0.447   - Downloading symfony/deprecation-contracts (v3.0.0)
+#12 0.448   - Downloading symfony/http-foundation (v5.4.3)
+#12 0.448   - Downloading psr/event-dispatcher (1.0.0)
+#12 0.448   - Downloading symfony/event-dispatcher-contracts (v3.0.0)
+#12 0.448   - Downloading symfony/event-dispatcher (v6.0.3)
+#12 0.448   - Downloading symfony/var-dumper (v5.4.3)
+#12 0.448   - Downloading psr/log (2.0.0)
+#12 0.448   - Downloading symfony/error-handler (v5.4.3)
+#12 0.449   - Downloading symfony/http-kernel (v5.4.4)
+#12 0.449   - Downloading voku/portable-ascii (1.6.1)
+#12 0.449   - Downloading phpoption/phpoption (1.8.1)
+#12 0.449   - Downloading graham-campbell/result-type (v1.0.4)
+#12 0.450   - Downloading vlucas/phpdotenv (v5.4.1)
+#12 0.450   - Downloading symfony/css-selector (v6.0.3)
+#12 0.450   - Downloading tijsverkoyen/css-to-inline-styles (2.2.4)
+#12 0.450   - Downloading symfony/routing (v5.4.3)
+#12 0.450   - Downloading symfony/process (v5.4.3)
+#12 0.451   - Downloading symfony/polyfill-php72 (v1.24.0)
+#12 0.451   - Downloading symfony/polyfill-intl-normalizer (v1.24.0)
+#12 0.451   - Downloading symfony/polyfill-intl-idn (v1.24.0)
+#12 0.451   - Downloading symfony/mime (v5.4.3)
+#12 0.451   - Downloading symfony/finder (v5.4.3)
+#12 0.451   - Downloading symfony/polyfill-intl-grapheme (v1.24.0)
+#12 0.451   - Downloading symfony/string (v6.0.3)
+#12 0.452   - Downloading psr/container (1.1.2)
+#12 0.452   - Downloading symfony/service-contracts (v2.4.1)
+#12 0.452   - Downloading symfony/console (v5.4.3)
+#12 0.452   - Downloading symfony/polyfill-iconv (v1.24.0)
+#12 0.452   - Downloading egulias/email-validator (2.1.25)
+#12 0.452   - Downloading swiftmailer/swiftmailer (v6.3.0)
+#12 0.452   - Downloading symfony/polyfill-php81 (v1.24.0)
+#12 0.452   - Downloading ramsey/collection (1.2.2)
+#12 0.453   - Downloading brick/math (0.9.3)
+#12 0.453   - Downloading ramsey/uuid (4.2.3)
+#12 0.453   - Downloading psr/simple-cache (1.0.1)
+#12 0.453   - Downloading opis/closure (3.6.3)
+#12 0.453   - Downloading symfony/translation-contracts (v3.0.0)
+#12 0.453   - Downloading symfony/translation (v6.0.3)
+#12 0.453   - Downloading nesbot/carbon (2.56.0)
+#12 0.453   - Downloading monolog/monolog (2.3.5)
+#12 0.454   - Downloading league/mime-type-detection (1.9.0)
+#12 0.454   - Downloading league/flysystem (1.1.9)
+#12 0.455   - Downloading nette/utils (v3.2.7)
+#12 0.455   - Downloading nette/schema (v1.2.2)
+#12 0.455   - Downloading dflydev/dot-access-data (v3.0.1)
+#12 0.455   - Downloading league/config (v1.1.1)
+#12 0.455   - Downloading league/commonmark (2.2.1)
+#12 0.455   - Downloading laravel/serializable-closure (v1.1.0)
+#12 0.455   - Downloading laravel/framework (v8.82.0)
+#12 0.456   - Downloading asm89/stack-cors (v2.1.1)
+#12 0.456   - Downloading fruitcake/laravel-cors (v2.0.5)
+#12 0.456   - Downloading psr/http-message (1.0.1)
+#12 0.457   - Downloading psr/http-client (1.0.1)
+#12 0.457   - Downloading ralouphie/getallheaders (3.0.3)
+#12 0.457   - Downloading psr/http-factory (1.0.1)
+#12 0.457   - Downloading guzzlehttp/psr7 (2.1.0)
+#12 0.457   - Downloading guzzlehttp/promises (1.5.1)
+#12 0.457   - Downloading guzzlehttp/guzzle (7.4.1)
+#12 0.458   - Downloading laravel/sanctum (v2.14.0)
+#12 0.458   - Downloading nikic/php-parser (v4.13.2)
+#12 0.458   - Downloading psy/psysh (v0.11.1)
+#12 0.458   - Downloading laravel/tinker (v2.7.0)
+#12 0.458   - Downloading livewire/livewire (v2.10.1)
+#12 0.466   0/71 [>---------------------------]   0%
+#12 0.879  11/71 [====>-----------------------]  15%
+#12 0.984  20/71 [=======>--------------------]  28%
+#12 1.087  33/71 [=============>--------------]  46%
+#12 1.188  42/71 [================>-----------]  59%
+#12 1.288  52/71 [====================>-------]  73%
+#12 1.389  65/71 [=========================>--]  91%
+#12 1.520  71/71 [============================] 100%
+#12 1.520   - Installing doctrine/inflector (2.0.4): Extracting archive
+#12 1.525   - Installing doctrine/lexer (1.2.2): Extracting archive
+#12 1.526   - Installing symfony/polyfill-ctype (v1.24.0): Extracting archive
+#12 1.533   - Installing webmozart/assert (1.10.0): Extracting archive
+#12 1.536   - Installing dragonmantank/cron-expression (v3.3.1): Extracting archive
+#12 1.539   - Installing symfony/polyfill-php80 (v1.24.0): Extracting archive
+#12 1.541   - Installing symfony/polyfill-php73 (v1.24.0): Extracting archive
+#12 1.546   - Installing symfony/polyfill-mbstring (v1.24.0): Extracting archive
+#12 1.548   - Installing symfony/deprecation-contracts (v3.0.0): Extracting archive
+#12 1.550   - Installing symfony/http-foundation (v5.4.3): Extracting archive
+#12 1.555   - Installing psr/event-dispatcher (1.0.0): Extracting archive
+#12 1.557   - Installing symfony/event-dispatcher-contracts (v3.0.0): Extracting archive
+#12 1.557   - Installing symfony/event-dispatcher (v6.0.3): Extracting archive
+#12 1.558   - Installing symfony/var-dumper (v5.4.3): Extracting archive
+#12 1.558   - Installing psr/log (2.0.0): Extracting archive
+#12 1.559   - Installing symfony/error-handler (v5.4.3): Extracting archive
+#12 1.559   - Installing symfony/http-kernel (v5.4.4): Extracting archive
+#12 1.559   - Installing voku/portable-ascii (1.6.1): Extracting archive
+#12 1.560   - Installing phpoption/phpoption (1.8.1): Extracting archive
+#12 1.560   - Installing graham-campbell/result-type (v1.0.4): Extracting archive
+#12 1.560   - Installing vlucas/phpdotenv (v5.4.1): Extracting archive
+#12 1.560   - Installing symfony/css-selector (v6.0.3): Extracting archive
+#12 1.561   - Installing tijsverkoyen/css-to-inline-styles (2.2.4): Extracting archive
+#12 1.561   - Installing symfony/routing (v5.4.3): Extracting archive
+#12 1.562   - Installing symfony/process (v5.4.3): Extracting archive
+#12 1.562   - Installing symfony/polyfill-php72 (v1.24.0): Extracting archive
+#12 1.563   - Installing symfony/polyfill-intl-normalizer (v1.24.0): Extracting archive
+#12 1.563   - Installing symfony/polyfill-intl-idn (v1.24.0): Extracting archive
+#12 1.564   - Installing symfony/mime (v5.4.3): Extracting archive
+#12 1.564   - Installing symfony/finder (v5.4.3): Extracting archive
+#12 1.564   - Installing symfony/polyfill-intl-grapheme (v1.24.0): Extracting archive
+#12 1.565   - Installing symfony/string (v6.0.3): Extracting archive
+#12 1.565   - Installing psr/container (1.1.2): Extracting archive
+#12 1.565   - Installing symfony/service-contracts (v2.4.1): Extracting archive
+#12 1.567   - Installing symfony/console (v5.4.3): Extracting archive
+#12 1.567   - Installing symfony/polyfill-iconv (v1.24.0): Extracting archive
+#12 1.567   - Installing egulias/email-validator (2.1.25): Extracting archive
+#12 1.568   - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+#12 1.569   - Installing symfony/polyfill-php81 (v1.24.0): Extracting archive
+#12 1.569   - Installing ramsey/collection (1.2.2): Extracting archive
+#12 1.570   - Installing brick/math (0.9.3): Extracting archive
+#12 1.570   - Installing ramsey/uuid (4.2.3): Extracting archive
+#12 1.570   - Installing psr/simple-cache (1.0.1): Extracting archive
+#12 1.571   - Installing opis/closure (3.6.3): Extracting archive
+#12 1.571   - Installing symfony/translation-contracts (v3.0.0): Extracting archive
+#12 1.572   - Installing symfony/translation (v6.0.3): Extracting archive
+#12 1.573   - Installing nesbot/carbon (2.56.0): Extracting archive
+#12 1.573   - Installing monolog/monolog (2.3.5): Extracting archive
+#12 1.574   - Installing league/mime-type-detection (1.9.0): Extracting archive
+#12 1.574   - Installing league/flysystem (1.1.9): Extracting archive
+#12 1.575   - Installing nette/utils (v3.2.7): Extracting archive
+#12 1.575   - Installing nette/schema (v1.2.2): Extracting archive
+#12 1.576   - Installing dflydev/dot-access-data (v3.0.1): Extracting archive
+#12 1.576   - Installing league/config (v1.1.1): Extracting archive
+#12 1.577   - Installing league/commonmark (2.2.1): Extracting archive
+#12 1.577   - Installing laravel/serializable-closure (v1.1.0): Extracting archive
+#12 1.577   - Installing laravel/framework (v8.82.0): Extracting archive
+#12 1.577   - Installing asm89/stack-cors (v2.1.1): Extracting archive
+#12 1.579   - Installing fruitcake/laravel-cors (v2.0.5): Extracting archive
+#12 1.579   - Installing psr/http-message (1.0.1): Extracting archive
+#12 1.580   - Installing psr/http-client (1.0.1): Extracting archive
+#12 1.580   - Installing ralouphie/getallheaders (3.0.3): Extracting archive
+#12 1.580   - Installing psr/http-factory (1.0.1): Extracting archive
+#12 1.580   - Installing guzzlehttp/psr7 (2.1.0): Extracting archive
+#12 1.581   - Installing guzzlehttp/promises (1.5.1): Extracting archive
+#12 1.581   - Installing guzzlehttp/guzzle (7.4.1): Extracting archive
+#12 1.581   - Installing laravel/sanctum (v2.14.0): Extracting archive
+#12 1.581   - Installing nikic/php-parser (v4.13.2): Extracting archive
+#12 1.582   - Installing psy/psysh (v0.11.1): Extracting archive
+#12 1.582   - Installing laravel/tinker (v2.7.0): Extracting archive
+#12 1.582   - Installing livewire/livewire (v2.10.1): Extracting archive
+#12 1.608   0/71 [>---------------------------]   0%
+#12 1.735  18/71 [=======>--------------------]  25%
+#12 1.853  30/71 [===========>----------------]  42%
+#12 1.960  40/71 [===============>------------]  56%
+#12 2.099  48/71 [==================>---------]  67%
+#12 2.219  57/71 [======================>-----]  80%
+#12 2.331  66/71 [==========================>-]  92%
+#12 2.372  71/71 [============================] 100%
+#12 2.636 Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+#12 2.636 Generating optimized autoload files
+#12 3.423 > Illuminate\Foundation\ComposerScripts::postAutoloadDump
+#12 3.435 > @php artisan package:discover --ansi
+#12 3.572 
+#12 3.582 In Creator.php line 928:
+#12 3.582                                                                                
+#12 3.582   Carbon\Carbon::setLastErrors(): Argument #1 ($lastErrors) must be of type a  
+#12 3.582   rray, bool given, called in /var/www/html/vendor/nesbot/carbon/src/Carbon/T  
+#12 3.582   raits/Creator.php on line 98                                                 
+#12 3.582                                                                                
+#12 3.582 
+#12 3.590 Script @php artisan package:discover --ansi handling the post-autoload-dump event returned with error code 1
+#12 ERROR: process "/bin/sh -c composer install --optimize-autoloader --no-dev --ignore-platform-reqs" did not complete successfully: exit code: 1
+------
+ > [stage-0 6/8] RUN composer install --optimize-autoloader --no-dev --ignore-platform-reqs:
+3.435 > @php artisan package:discover --ansi
+3.572 
+3.582 In Creator.php line 928:
+3.582                                                                                
+3.582   Carbon\Carbon::setLastErrors(): Argument #1 ($lastErrors) must be of type a  
+3.582   rray, bool given, called in /var/www/html/vendor/nesbot/carbon/src/Carbon/T  
+3.582   raits/Creator.php on line 98                                                 
+3.582                                                                                
+3.582 
+3.590 Script @php artisan package:discover --ansi handling the post-autoload-dump event returned with error code 1
+------
+Dockerfile:13
+--------------------
+  11 |     COPY . .
+  12 |     
+  13 | >>> RUN composer install --optimize-autoloader --no-dev --ignore-platform-reqs
+  14 |     
+  15 |     RUN chown -R www-data:www-data /var/www/html \
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c composer install --optimize-autoloader --no-dev --ignore-platform-reqs" did not complete successfully: exit code: 1
