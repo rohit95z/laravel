@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
 
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction
@@ -42,9 +42,9 @@ jobs:
 
       - name: Run Laravel Commands on Server
         run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
             cd ${{ secrets.DEPLOY_PATH }}
-            php artisan down
+            php artisan down --allow=127.0.0.1
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
             php artisan config:cache
@@ -52,5 +52,5 @@ jobs:
             php artisan view:cache
             php artisan storage:link
             php artisan up
-            echo "✅ Laravel Deploy Complete!"
-          EOF
+            echo "Deploy Complete!"
+          ENDSSH
