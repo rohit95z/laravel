@@ -1,5 +1,23 @@
+<<<<<<< HEAD
 vendor/
 .env
 node_modules/
 storage/logs/
 .DS_Store
+=======
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+>>>>>>> e6318ae292bbda9b8eaa413eeb080a4e7991c15c
