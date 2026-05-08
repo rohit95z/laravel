@@ -13,17 +13,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # PHP Setup
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
 
-      # Composer Dependencies Install
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction
 
-      # SSH Setup
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -33,7 +30,6 @@ jobs:
         run: |
           ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      # Files Server Pe Copy Karo (rsync - fast & smart)
       - name: Deploy Files via Rsync
         run: |
           rsync -avz --delete \
@@ -44,32 +40,17 @@ jobs:
             -e "ssh -p ${{ secrets.SSH_PORT }}" \
             ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
 
-      # Server Pe Laravel Commands Chalao
       - name: Run Laravel Commands on Server
         run: |
           ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ${{ secrets.DEPLOY_PATH }}
-
-            # Maintenance mode on
             php artisan down
-
-            # Dependencies
             composer install --no-dev --optimize-autoloader
-
-            # Database migrate
             php artisan migrate --force
-
-            # Cache clear & optimize
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-
-            # Storage link
             php artisan storage:link
-
-            # Maintenance mode off
             php artisan up
-
             echo "✅ Laravel Deploy Complete!"
           EOF
-          
